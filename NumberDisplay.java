@@ -7,51 +7,61 @@
  */
 public class NumberDisplay
 {
-    // instance variables - replace the example below with your own
-    private int display;
+    private int value;
+    
     private int limit;
 
-    /**
-     * Constructor for objects of class NumberDisplay
-     */
-    public NumberDisplay(int newLimit)
+    public NumberDisplay(int limitValue)
     {
-        limit = newLimit;
-        display = 0;
+        limit = limitValue;
+        value = 0;
     }
-  
-    public void setValue(int newDisplay)
+
+    public void setValue(int value)
     {
-        display = newDisplay;
-    }
-    
-    public void getDisplayValue()
-    {
-        if(display <10)
+        if(value < limit)
         {
-            System.out.println("0" + display);
+            value = value;
         }
         else
         {
-            System.out.println(display);
+            value = limit;
+        }
+    }
+    
+    public String getDisplayValue()
+    {
+        if(value < 10)
+        {
+            String number = "0" + value;
+            return number;
+        }
+        else if(value > 99)
+        {
+            String number = "" + 99;
+            return number;
+        }
+        else
+        {
+            String number = "" + value;
+            return number;
         }
     }
     
     public int getValue()
     {
-        return display;
+        return value;
     }
     
     public void increment()
     {
-        
-        if ( display < limit)
+        if(value < limit)
         {
-            display ++;
+            value++;
         }
-        else 
+        else
         {
-            display = 0;
+            value = 0;
         }
     }
 }
